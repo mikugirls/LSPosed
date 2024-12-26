@@ -250,8 +250,9 @@ void Logcat::ProcessBuffer(struct log_msg *buf) {
             enable_watchdog = false;
             enable_watchdog.notify_one();
             std::system("resetprop -p --delete persist.logd.size");
-            std::system("resetprop -p --delete persist.logd.size.main");
             std::system("resetprop -p --delete persist.logd.size.crash");
+            std::system("resetprop -p --delete persist.logd.size.main");
+            std::system("resetprop -p --delete persist.logd.size.system");
 
             // Terminate the watchdog thread by exiting __system_property_wait firs firstt
             std::system("setprop persist.log.tag V");
